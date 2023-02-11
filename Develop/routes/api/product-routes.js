@@ -26,7 +26,7 @@ router.get('/:id', async (req, res) => {
       include: [{model: Category, as: 'product_category'}]
     })
 
-    if (!locationData) {
+    if (!productData) {
       res.status(404).json({ message: 'No location found with this id!' });
       return;
     }

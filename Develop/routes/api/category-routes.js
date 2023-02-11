@@ -25,7 +25,7 @@ router.get('/:id', async (req, res) => {
       include: [{model: Product, as: 'products'}]
     })
 
-    if (!locationData) {
+    if (!categoryData) {
       res.status(404).json({ message: 'No location found with this id!' });
       return;
     }
@@ -58,9 +58,9 @@ router.put('/:id', (req, res) => {
     },
   }
   )
-  .then((updatedBook) => {
-    // Sends the updated book as a json response
-    res.json(updatedBook);
+  .then((updatedCategory) => {
+    // Sends the updated category as a json response
+    res.json(updatedCategory);
   })
   .catch((err) => res.json(err));
 });
@@ -72,8 +72,8 @@ router.delete('/:id', (req, res) => {
       id: req.params.id,
     },
   })
-  .then((deletedBook) => {
-    res.json(deletedBook);
+  .then((deletedCategory) => {
+    res.json(deletedCategory);
   })
   .catch((err) => res.json(err));
 });
